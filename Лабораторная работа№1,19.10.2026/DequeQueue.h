@@ -1,10 +1,8 @@
 #pragma once
 #ifndef DEQUEQUEUE_H
 #define DEQUEQUEUE_H
-
 #include "Base.h"
 #include "QueueNode.h"
-
 class DequeQueue : public Base {
 private:
     QueueNode* head;

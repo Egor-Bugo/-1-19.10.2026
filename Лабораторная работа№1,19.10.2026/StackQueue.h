@@ -1,10 +1,8 @@
 #pragma once
 #ifndef STACKQUEUE_H
 #define STACKQUEUE_H
-
 #include "Base.h"
 #include "QueueNode.h"
-
 class StackQueue : public Base {
 private:
     QueueNode* topNode;

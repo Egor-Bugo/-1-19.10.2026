@@ -1,9 +1,7 @@
 #pragma once
 #ifndef BASE_H
 #define BASE_H
-
 #include <iostream>
-
 class Base {
 public:
     Base() {
@@ -13,8 +11,7 @@ public:
     virtual ~Base() {
         std::cout << "[Base Destructor] Base object destroyed.\n";
     }
-
-    virtual void push(int value) = 0;
+        virtual void push(int value) = 0;
     virtual int pop() = 0;
     virtual void print() const = 0;
     virtual void saveToFile(std::ostream& os) const = 0;

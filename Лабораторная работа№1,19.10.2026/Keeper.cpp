@@ -16,12 +16,10 @@ void Keeper::resize(int newCapacity) {
     delete[] data;
     data = newData;
 }
-
 Keeper::Keeper() : size(0), capacity(2) {
     data = new Base * [capacity];
     std::cout << "[Constructor] Keeper created.\n";
 }
-
 Keeper::Keeper(const Keeper& other) : size(other.size), capacity(other.capacity) {
     data = new Base * [capacity];
     for (int i = 0; i < size; ++i) {
@@ -38,7 +36,6 @@ Keeper::Keeper(const Keeper& other) : size(other.size), capacity(other.capacity)
     }
     std::cout << "[Copy Constructor] Keeper copied.\n";
 }
-
 Keeper::~Keeper() {
     for (int i = 0; i < size; ++i) {
         delete data[i];
@@ -46,14 +43,12 @@ Keeper::~Keeper() {
     delete[] data;
     std::cout << "[Destructor] Keeper destroyed.\n";
 }
-
 void Keeper::add(Base* obj) {
     if (size >= capacity) {
         resize(capacity * 2);
     }
     data[size++] = obj;
 }
-
 void Keeper::remove(int index) {
     if (index < 0 || index >= size) {
         throw MyException("Error: Invalid index for removal!");
@@ -64,18 +59,15 @@ void Keeper::remove(int index) {
     }
     size--;
 }
-
 Base* Keeper::get(int index) const {
     if (index < 0 || index >= size) {
         throw MyException("Error: Index out of bounds!");
     }
     return data[index];
 }
-
 int Keeper::getSize() const {
     return size;
 }
-
 void Keeper::printAll() const {
     if (size == 0) {
         std::cout << "Keeper is empty.\n";
@@ -86,7 +78,6 @@ void Keeper::printAll() const {
         data[i]->print();
     }
 }
-
 void Keeper::saveToFile(const char* filename) const {
     std::ofstream file(filename);
     if (!file.is_open()) {
@@ -101,7 +92,6 @@ void Keeper::saveToFile(const char* filename) const {
     file.close();
     std::cout << "Successfully saved to " << filename << "\n";
 }
-
 void Keeper::loadFromFile(const char* filename) {
     std::ifstream file(filename);
     if (!file.is_open()) {

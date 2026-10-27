@@ -18,7 +18,6 @@ void showMenu() {
     std::cout << "0. Exit\n";
     std::cout << "Enter your choice: ";
 }
-
 int main() {
     Keeper keeper;
     int choice = -1;

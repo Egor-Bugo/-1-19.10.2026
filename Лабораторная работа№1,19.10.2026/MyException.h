@@ -1,7 +1,6 @@
 #pragma once
 #ifndef MYEXCEPTION_H
 #define MYEXCEPTION_H
-
 class MyException {
 private:
     char message[256];

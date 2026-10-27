@@ -1,11 +1,9 @@
 #include "ListQueue.h"
 #include "MyException.h"
 #include <iostream>
-
 ListQueue::ListQueue() : head(nullptr), tail(nullptr), count(0) {
     std::cout << "[Constructor] ListQueue created.\n";
 }
-
 ListQueue::ListQueue(const ListQueue& other) : head(nullptr), tail(nullptr), count(0) {
     std::cout << "[Copy Constructor] ListQueue copied.\n";
     QueueNode* current = other.head;
@@ -14,7 +12,6 @@ ListQueue::ListQueue(const ListQueue& other) : head(nullptr), tail(nullptr), cou
         current = current->next;
     }
 }
-
 ListQueue::~ListQueue() {
     std::cout << "[Destructor] ListQueue destroyed.\n";
     while (head != nullptr) {
@@ -23,7 +20,6 @@ ListQueue::~ListQueue() {
         delete temp;
     }
 }
-
 void ListQueue::push(int value) {
     QueueNode* newNode = new QueueNode(value);
     if (tail == nullptr) {
@@ -35,7 +31,6 @@ void ListQueue::push(int value) {
     }
     count++;
 }
-
 int ListQueue::pop() {
     if (head == nullptr) {
         throw MyException("Error: List is empty, cannot pop element!");
@@ -50,7 +45,6 @@ int ListQueue::pop() {
     count--;
     return val;
 }
-
 void ListQueue::print() const {
     std::cout << "List (Queue-based): ";
     QueueNode* current = head;
@@ -60,7 +54,6 @@ void ListQueue::print() const {
     }
     std::cout << "\n";
 }
-
 void ListQueue::saveToFile(std::ostream& os) const {
     os << count << " ";
     QueueNode* current = head;
@@ -69,7 +62,6 @@ void ListQueue::saveToFile(std::ostream& os) const {
         current = current->next;
     }
 }
-
 void ListQueue::loadFromFile(std::istream& is) {
     while (head != nullptr) {
         QueueNode* temp = head;
@@ -78,8 +70,7 @@ void ListQueue::loadFromFile(std::istream& is) {
     }
     tail = nullptr;
     count = 0;
-
-    int size;
+        int size;
     if (!(is >> size)) return;
     for (int i = 0; i < size; ++i) {
         int val;

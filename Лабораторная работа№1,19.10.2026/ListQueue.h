@@ -1,10 +1,8 @@
 #pragma once
 #ifndef LISTQUEUE_H
 #define LISTQUEUE_H
-
 #include "Base.h"
 #include "QueueNode.h"
-
 class ListQueue : public Base {
 private:
     QueueNode* head;
